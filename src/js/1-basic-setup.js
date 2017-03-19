@@ -33,7 +33,7 @@ const nameReducer = (initialState={}, action) => {
   }
   return initialState;
 }
-//store
+//store here the state object is {counter, name}
 const store = createStore(combineReducers({
 	counter:counterReducer,
 	name:nameReducer

@@ -13,7 +13,7 @@ const reducer = (initialState=0, action) => {
 
 const logger = (store) => (next) => (action) => {
   console.log("Logged", action);
-  return next(action);
+   next(action);
 };
 
 
