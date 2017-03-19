@@ -1,5 +1,13 @@
 import { createStore } from "redux";
-
+//Action methods
+const incrementAction = ()=>{
+	return {type:"INC"};
+}
+//Action methods
+const decrementAction = ()=>{
+	return {type:"DEC"};
+}
+//reducer
 const reducer = (initialState=0, action) => {
   if (action.type === "INC") {
     return initialState + 1;
@@ -8,16 +16,18 @@ const reducer = (initialState=0, action) => {
   }
   return initialState;
 }
-
-const store = createStore(reducer, 1)
-
+//store
+const store = createStore(reducer)
+//store subscribe to notify any change that happens in the state tree or the store
 store.subscribe(() => {
   console.log("store changed", store.getState());
 })
 
-store.dispatch({type: "INC"})
-store.dispatch({type: "INC"})
-store.dispatch({type: "INC"})
-store.dispatch({type: "DEC"})
-store.dispatch({type: "DEC"})
-store.dispatch({type: "DEC"})
+
+//dispatch to trigger a change in the state of the application which then calls the reducer and state changes
+store.dispatch(incrementAction())
+store.dispatch(incrementAction())
+store.dispatch(incrementAction())
+store.dispatch(decrementAction())
+store.dispatch(decrementAction())
+store.dispatch(decrementAction())
